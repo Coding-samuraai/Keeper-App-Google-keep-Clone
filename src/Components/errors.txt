@@ -1,0 +1,2 @@
+1. While updating a note, if we remove Complete title, error occurs.
+2. Google Auth.

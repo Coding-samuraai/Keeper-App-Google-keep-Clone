@@ -1,0 +1,557 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: #eee;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  /* header */
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5ba13;
+    padding: 30px 125px;
+    height: 175px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+    width: 210px;
+    font-size: 1.7rem;
+  }
+
+  .search-input {
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 10px;
+    outline: 0;
+    width: 210px;
+  }
+
+  .search-input::placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.53);
+  }
+  /*  */
+
+  /* note Taker */
+  .note-taker {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    margin: 30px auto;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.365);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+  }
+
+  .note-taker input,
+  .note-taker textarea {
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+  }
+
+  .note-title {
+    height: 50px;
+  }
+
+  .note-content {
+    min-height: 90px;
+    resize: none;
+  }
+
+  .note-title::placeholder,
+  .note-content::placeholder {
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+  }
+
+  .note-taker button {
+    position: absolute;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #f5ba13;
+    color: white;
+    font-size: 0.45rem;
+    bottom: -25px;
+    right: 20px;
+  }
+
+  .note-taker button:hover {
+    background-color: rgb(255, 216, 44);
+    cursor: pointer;
+  }
+
+  /*  */
+
+  /* note container */
+  .note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 30px;
+    height: 100%;
+  }
+
+  .note {
+    margin: 25px 0;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 5px #ccc;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-property: all;
+  }
+
+  .updater-background {
+    background-color: #00000073;
+    position: fixed;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .edit-note-animaton {
+    position: absolute;
+    left: 0px !important;
+    top: 360px !important;
+  }
+
+  .note-fields {
+    font-size: 1.1em;
+  }
+
+  .note .note-fields h1 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    outline: 0;
+  }
+
+  .note .note-fields p {
+    min-height: 30px;
+    max-height: 100px;
+    overflow: hidden;
+    word-wrap:break-word;
+    outline: 0;
+  }
+
+  .note .note-fields p::-webkit-scrollbar {
+    display: none;
+  }
+
+  .note .note-buttons {
+    text-align: right;
+    background: #fff;
+    padding-top: 20px;
+    font-size: 1.5rem;
+  }
+
+
+  .note .note-buttons button {
+    background-color: white;
+    color: #f5ba13;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+
+  .note .note-buttons button:hover {
+    cursor: pointer;
+  }
+  /*  */
+}
+
+/* ////////////////////////////////RESPONSIVE//////////////////////////////// */
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  /* header */
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5ba13;
+    padding: 30px 125px;
+    height: 175px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+  }
+
+  .search-input {
+    border-radius: 5px;
+    border: 0;
+    width: 100px;
+    padding: 10px 10px;
+    outline: 0;
+    width: 210px;
+  }
+
+  .search-input::placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.53);
+  }
+  /*  */
+
+  /* note Taker */
+  .note-taker {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 590px;
+    margin: 30px auto;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.365);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+  }
+
+  .note-taker input,
+  .note-taker textarea {
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+  }
+
+  .note-title {
+    height: 50px;
+  }
+
+  .note-content {
+    min-height: 90px;
+    resize: none;
+  }
+
+  .note-title::placeholder,
+  .note-content::placeholder {
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+  }
+
+  .note-taker button {
+    position: absolute;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #f5ba13;
+    color: white;
+    font-size: 0.45rem;
+    bottom: -25px;
+    right: 20px;
+  }
+
+  .note-taker button:hover {
+    background-color: rgb(255, 216, 44);
+    cursor: pointer;
+  }
+
+  /*  */
+
+  /* note container */
+  .note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 75px;
+    height: 100%;
+  }
+
+  .note {
+    box-shadow: 0 2px 5px #ccc;
+    margin: 25px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 20px;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-property: all;
+  }
+
+  .updater-background {
+    background-color: #00000073;
+    position: fixed;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .edit-note-animaton {
+    position: absolute;
+    left: 55px !important;
+    top: 360px !important;
+  }
+
+  .note-fields {
+    width: 400px;
+    font-size: 1.1em;
+  }
+
+  .edit-note-fields {
+    width: 500px;
+  }
+
+  .note .note-fields h1 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    outline: 0;
+  }
+
+  .note .note-fields p {
+    min-height: 30px;
+    max-height: 300px;
+    overflow: hidden;
+    outline: 0;
+  }
+
+  .note .note-fields p::-webkit-scrollbar {
+    display: none;
+  }
+
+  .note .note-buttons {
+    text-align: right;
+    background: #fff;
+    padding-top: 20px;
+    font-size: 1.5rem;
+  }
+
+  .note .note-buttons button {
+    background-color: white;
+    color: #f5ba13;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+
+  .note .note-buttons button:hover {
+    cursor: pointer;
+  }
+  /*  */
+}
+
+/* ////////////////////////////////RESPONSIVE//////////////////////////////// */
+
+@media screen and (min-width: 768px) {
+  /* header */
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5ba13;
+    padding: 30px 125px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+  }
+
+  .search-input {
+    border-radius: 5px;
+    border: 0;
+    width: 100px;
+    padding: 10px 10px;
+    outline: 0;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    transition-property: all;
+  }
+
+  .search-input:focus {
+    width: 30%;
+  }
+
+  .search-input::placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.53);
+  }
+  /*  */
+
+  /* note Taker */
+  .note-taker {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 590px;
+    margin: 30px auto;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.365);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+  }
+
+  .note-taker input,
+  .note-taker textarea {
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+  }
+
+  .note-title {
+    height: 50px;
+  }
+
+  .note-content {
+    min-height: 90px;
+    resize: none;
+  }
+
+  .note-title::placeholder,
+  .note-content::placeholder {
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+  }
+
+  .note-taker button {
+    position: absolute;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #f5ba13;
+    color: white;
+    font-size: 0.45rem;
+    bottom: -25px;
+    right: 20px;
+  }
+
+  .note-taker button:hover {
+    background-color: rgb(255, 216, 44);
+    cursor: pointer;
+  }
+
+  /*  */
+
+  /* note container */
+  .note-container {
+    display: grid;  
+    grid-template-columns: repeat(auto-fit,400px);
+    justify-content: left;
+    align-content: center;
+    margin: 15px 75px;
+    height: 100%;
+  }
+
+  .note {
+    box-shadow: 0 2px 5px #ccc;
+    margin: 25px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 20px;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-property: all;
+  }
+
+  .updater-background {
+    background-color: #00000073;
+    position: fixed;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .edit-note-animaton {
+    position: absolute;
+    left: 475px !important;
+    top: 130px !important;
+  }
+
+  .note-fields {
+    width: 300px;
+    font-size: 1.1em;
+  }
+
+  .edit-note-fields {
+    width: 500px;
+  }
+
+  .note .note-fields h1 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    outline: 0;
+  }
+
+  .note .note-fields p {
+    min-height: 30px;
+    max-height: 300px;
+    overflow: hidden;
+    outline: 0;
+  }
+
+  .note .note-fields p::-webkit-scrollbar {
+    display: none;
+  }
+
+  .note .note-buttons {
+    text-align: right;
+    background: #fff;
+    padding-top: 20px;
+    font-size: 1.5rem;
+  }
+
+  .note .note-buttons button {
+    background-color: white;
+    color: #f5ba13;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+
+  .note .note-buttons button:hover {
+    cursor: pointer;
+  }
+
+  /*  */
+}
